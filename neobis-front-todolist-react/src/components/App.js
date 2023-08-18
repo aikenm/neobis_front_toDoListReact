@@ -24,15 +24,20 @@ function App() {
   };
 
   const handleEdit = (index) => {
-    
+    const updatedTasks = [...tasks];
+    updatedTasks[index].isEditing = !updatedTasks[index].isEditing;
+    setTasks(updatedTasks);
   };
+  
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category === selectedCategory ? '' : category);
   };
 
   const handleComplete = (index) => {
-    
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    setTasks(newTasks);
   };
 
   return (
@@ -44,9 +49,17 @@ function App() {
       <h5>What's on your todo list?</h5>
       <TaskInput onAddTask={handleAddTask} />
       <h5>Pick a category</h5>
-      <CategoryCheckbox selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
+      <CategoryCheckbox 
+        selectedCategory={selectedCategory} 
+        onCategoryChange={handleCategoryChange} 
+      />
       <h4>TODO LIST</h4>
-      <TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit} onComplete={handleComplete} />
+      <TaskList 
+        tasks={tasks} 
+        onDelete={handleDelete} 
+        onEdit={handleEdit} 
+        onComplete={handleComplete} 
+      />
     </div>
   );
 }

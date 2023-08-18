@@ -189,6 +189,7 @@ li input[type="checkbox"] {
 li label {
     font-size: 16px;
     pointer-events: none;
+    outline: none;
 }
 
 li button {
