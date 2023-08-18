@@ -2,25 +2,25 @@ import React, { useRef, useEffect } from 'react';
 
 function TaskList({ tasks, onDelete, onEdit, onComplete }) {
 
-    const handleEdit = (index, newText) => {
-        onEdit(index, newText);
-    };
+  const handleEdit = (index, newText) => {
+    onEdit(index, newText);
+  };
 
-    const editableLabelRef = useRef(null);
-   
-    useEffect(() => {
-        if (editableLabelRef.current) {
-          if (tasks.some(task => task.isEditing)) {
-            editableLabelRef.current.focus();
-            const range = document.createRange();
-            range.selectNodeContents(editableLabelRef.current);
-            range.collapse(false); 
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-          }
-        }
-      }, [tasks]);
+  const editableLabelRef = useRef(null);
+
+  useEffect(() => {
+    if (editableLabelRef.current) {
+      if (tasks.some(task => task.isEditing)) {
+        editableLabelRef.current.focus();
+        const range = document.createRange();
+        range.selectNodeContents(editableLabelRef.current);
+        range.collapse(false);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    }
+  }, [tasks]);
 
   return (
     <ul className="taskList">
@@ -28,12 +28,12 @@ function TaskList({ tasks, onDelete, onEdit, onComplete }) {
         <li key={index} className={task.category}>
           <input
             type="checkbox"
-            checked={task.checked}
+            checked={task.completed}
             onChange={() => onComplete(index)}
           />
           <label
             ref={task.isEditing ? editableLabelRef : null}
-            className={`taskText ${task.isEditing ? 'editable' : ''}`}
+            className={`taskText ${task.isEditing ? 'editable' : ''} ${task.completed ? 'completed' : ''}`}
             contentEditable={task.isEditing}
           >
             {task.text}

@@ -9,6 +9,11 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('personal');
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category === selectedCategory ? '' : category);
+  };
+
+
   const handleAddTask = (newTaskText) => {
     const newTask = {
       text: newTaskText,
@@ -16,6 +21,12 @@ function App() {
       checked: false,
     };
     setTasks([...tasks, newTask]);
+  };
+
+  const handleComplete = (index) => {
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    setTasks(newTasks);
   };
 
   const handleDelete = (index) => {
@@ -27,17 +38,6 @@ function App() {
     const updatedTasks = [...tasks];
     updatedTasks[index].isEditing = !updatedTasks[index].isEditing;
     setTasks(updatedTasks);
-  };
-  
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category === selectedCategory ? '' : category);
-  };
-
-  const handleComplete = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
   };
 
   return (
