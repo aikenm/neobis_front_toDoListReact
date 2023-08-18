@@ -28,7 +28,6 @@ function TaskList({ tasks, onDelete, onEdit, onComplete }) {
         <li key={index} className={task.category}>
           <input
             type="checkbox"
-            className={`${task.category}-border`}
             checked={task.checked}
             onChange={() => onComplete(index)}
           />
