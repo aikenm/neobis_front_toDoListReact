@@ -4,23 +4,27 @@ import EditableName from './EditableName';
 import CategoryCheckbox from './CategoryCheckbox';
 import TaskInput from './TaskInput';
 import TaskList from './TaskList';
+import AddButton from './AddButton';
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('personal');
+  const [selectedCategory, setSelectedCategory] = useState('business');
+  const [taskText, setTaskText] = useState('');
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category === selectedCategory ? '' : category);
   };
 
-
   const handleAddTask = (newTaskText) => {
+    if (taskText.trim() !== '') {
     const newTask = {
       text: newTaskText,
       category: selectedCategory,
       checked: false,
     };
     setTasks([...tasks, newTask]);
+    setTaskText(''); 
+  }
   };
 
   const handleComplete = (index) => {
@@ -47,11 +51,17 @@ function App() {
       </h1>
       <h4>CREATE A TODO</h4>
       <h5>What's on your todo list?</h5>
-      <TaskInput onAddTask={handleAddTask} />
+      <TaskInput
+        taskText={taskText}
+        onInputChange={(event) => setTaskText(event.target.value)} 
+      />
       <h5>Pick a category</h5>
       <CategoryCheckbox 
         selectedCategory={selectedCategory} 
         onCategoryChange={handleCategoryChange} 
+      />
+      <AddButton 
+        onClick={() => handleAddTask(taskText)} 
       />
       <h4>TODO LIST</h4>
       <TaskList 

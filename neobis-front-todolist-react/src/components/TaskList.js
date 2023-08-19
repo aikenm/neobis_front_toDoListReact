@@ -1,10 +1,25 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function TaskList({ tasks, onDelete, onEdit, onComplete }) {
 
+const [editButtonText, setEditButtonText] = useState('Edit');
+const [editButtonCounter, setEditButtonCounter] = useState(0);
   const handleEdit = (index, newText) => {
     onEdit(index, newText);
   };
+
+  const handleEditButtonClick = (index) => {
+    if (editButtonCounter === 1) {
+      setEditButtonText('✔'); 
+      setEditButtonCounter(0); 
+    } else {
+      setEditButtonText('Edit'); 
+      setEditButtonCounter(1);
+    }
+    
+    handleEdit(index, 'newEditedText'); 
+  };
+
 
   const editableLabelRef = useRef(null);
 
@@ -38,8 +53,8 @@ function TaskList({ tasks, onDelete, onEdit, onComplete }) {
           >
             {task.text}
           </label>
-          <button className="edit-button" onClick={() => handleEdit(index, 'newEditedText')}>
-            Edit
+          <button className="edit-button" onClick={() => handleEditButtonClick(index)}>
+            {editButtonText}
           </button>
           <button className="delete-button" onClick={() => onDelete(index)}>
             Delete

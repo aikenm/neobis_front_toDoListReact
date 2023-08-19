@@ -1,19 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function TaskInput({ onAddTask }) {
-  const [taskText, setTaskText] = useState('');
-
-  const handleInputChange = (event) => {
-    setTaskText(event.target.value);
-  };
-
-  const handleAddButtonClick = () => {
-    if (taskText.trim() !== '') {
-      onAddTask(taskText);
-      setTaskText('');
-    }
-  };
-
+function TaskInput({ taskText, onInputChange }) {
   return (
     <div>
       <input
@@ -21,11 +8,8 @@ function TaskInput({ onAddTask }) {
         className="taskInput"
         placeholder="e.g. get a milk"
         value={taskText}
-        onChange={handleInputChange}
+        onChange={onInputChange}
       />
-      <button className="add" onClick={handleAddButtonClick}>
-        Add todo
-      </button>
     </div>
   );
 }
