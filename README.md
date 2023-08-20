@@ -6,7 +6,7 @@
 
 This **React-based** project presents a sophisticated Todo List web application, harnessing the power of React's robust capabilities. Seamlessly merging business and personal task management, users can effortlessly create, track, and organize their tasks. Through React's dynamic rendering, users can instantly mark tasks as completed, edit task names, and efficiently remove completed tasks. This interactive and efficient digital tool provides an enhanced user experience, leveraging React's advantages to deliver a fluid and responsive task management solution.
 
-You can make a quick view here on **Netlify:** ...
+You can make a quick view here on **Netlify:** https://deluxe-pudding-c6fbf1.netlify.app/
 
 ## Installation
 
