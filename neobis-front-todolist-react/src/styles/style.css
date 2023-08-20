@@ -13,12 +13,18 @@ body {
 
 .container h1 {
     margin-top: 40px;
-    color: #353555;
 }
 
-.name {
+.placeholder {
     outline: none;
+    color: #939393;
 }
+
+
+.name:not(.placeholder) {
+    outline: none;
+    color: #353555;
+  }
 
 .container h4 {
     margin-top: 40px;
