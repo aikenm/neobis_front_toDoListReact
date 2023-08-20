@@ -8,6 +8,8 @@ This **React-based** project presents a sophisticated Todo List web application,
 
 You can make a quick view here on **Netlify:** ...
 
+## Installation
+
 1. **Download Visual Studio Code (VSCode)**:
    Download and install Visual Studio Code, a popular code editor, to work with the project files.
    Download Link: [Visual Studio Code](https://code.visualstudio.com/)
