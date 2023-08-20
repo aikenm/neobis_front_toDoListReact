@@ -42,18 +42,6 @@ function App() {
     setTasks(updatedTasks);
   };
 
-  const handleDelete = (index) => {
-    const updatedTasks = tasks.slice(); 
-    const deletedTask = updatedTasks.splice(index, 1)[0]; 
-    setTasks(updatedTasks); 
-    
-    
-    if (deletedTask.isEditing) {
-      deletedTask.isEditing = false;
-      setTasks([...updatedTasks.slice(0, index), deletedTask, ...updatedTasks.slice(index)]); 
-    }
-  };
-
   return (
     <div className="container">
       <h1 className="name">
@@ -77,7 +65,7 @@ function App() {
       <h4>TODO LIST</h4>
       <TaskList 
         tasks={tasks} 
-        onDelete={handleDelete} 
+        onDelete={(updatedTasks) => setTasks(updatedTasks)} 
         onEdit={(updatedTasks) => setTasks(updatedTasks)} 
         onComplete={handleComplete}
       />
