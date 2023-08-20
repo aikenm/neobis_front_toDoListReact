@@ -223,13 +223,13 @@ li button {
 .edit-button {
     width: 60px;
     margin-left: auto;
-    background-color: #d13995;
+    background-color: #b93386;
 }
 
 .delete-button {
     width: 80px;
     margin-right: 20px;
-    background-color: #e4534f;
+    background-color: #c85538;
 }
 
 .edit-button:hover {
