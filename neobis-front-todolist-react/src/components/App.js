@@ -27,6 +27,13 @@ function App() {
   }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleAddTask(taskText);
+    }
+  };
+  
+
   const handleComplete = (index) => {
     const newTasks = [...tasks];
     newTasks[index].completed = !newTasks[index].completed;
@@ -53,7 +60,8 @@ function App() {
       <h5>What's on your todo list?</h5>
       <TaskInput
         taskText={taskText}
-        onInputChange={(event) => setTaskText(event.target.value)} 
+        onInputChange={(event) => setTaskText(event.target.value)}
+        onKeyDown={handleKeyPress}
       />
       <h5>Pick a category</h5>
       <CategoryCheckbox 

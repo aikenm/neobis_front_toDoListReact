@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TaskInput({ taskText, onInputChange }) {
+function TaskInput({ taskText, onInputChange, onKeyDown }) {
   return (
     <div>
       <input
@@ -9,6 +9,7 @@ function TaskInput({ taskText, onInputChange }) {
         placeholder="e.g. get a milk"
         value={taskText}
         onChange={onInputChange}
+        onKeyDown={onKeyDown}
       />
     </div>
   );
