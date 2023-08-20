@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# neobis_front_toDoListReact
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Todo List React
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+This **React-based** project presents a sophisticated Todo List web application, harnessing the power of React's robust capabilities. Seamlessly merging business and personal task management, users can effortlessly create, track, and organize their tasks. Through React's dynamic rendering, users can instantly mark tasks as completed, edit task names, and efficiently remove completed tasks. This interactive and efficient digital tool provides an enhanced user experience, leveraging React's advantages to deliver a fluid and responsive task management solution.
 
-### `npm start`
+You can make a quick view here on **Netlify:** ...
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Download Visual Studio Code (VSCode)**:
+   Download and install Visual Studio Code, a popular code editor, to work with the project files.
+   Download Link: [Visual Studio Code](https://code.visualstudio.com/)
 
-### `npm test`
+2. **Install Node.js and npm**:
+   Node.js is required to run JavaScript applications on the server. npm (Node Package Manager) comes with Node.js and helps manage project dependencies.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   a. Download Node.js:
+   Download and install the latest LTS version of Node.js.
+   Download Link: [Node.js](https://nodejs.org/)
 
-### `npm run build`
+   b. Verify Installation:
+   Open a terminal or command prompt and run the following commands to verify that Node.js and npm are installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   node -v
+   npm -v
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Clone the Repository**:
+   Clone the GitHub repository to your local machine using the following command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/aikenm/neobis_front_toDoListReact.git
+```
 
-### `npm run eject`
+4. **Open a Terminal or Command Prompt**:
+   Navigate to the project directory using the `cd` command and run:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **Start the Development Server**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you succeed, your browser will automatically open a running app on your **localhost**.
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project is authored by Aiken Manasbekov.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact
 
-### Code Splitting
+For any questions or suggestions, feel free to contact me:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Email: a.mnsbkv@gmail.com
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GitHub: https://github.com/aikenm
