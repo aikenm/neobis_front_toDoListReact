@@ -2,10 +2,8 @@ import React from 'react';
 
 function CategoryCheckbox({ selectedCategory, onCategoryChange }) {
   const handleCheckboxClick = (category) => {
-    if (category !== selectedCategory) {
+    if (selectedCategory !== category) {
       onCategoryChange(category);
-    } else {
-      onCategoryChange('');
     }
   };
 
@@ -20,8 +18,7 @@ function CategoryCheckbox({ selectedCategory, onCategoryChange }) {
           className="businessRadio"
           id="businessRadio"
           checked={selectedCategory === 'business'}
-          disabled={selectedCategory === 'business'}
-          onChange={() => {}}
+          disabled
         />
         <label htmlFor="businessRadio">Business</label>
       </div>
@@ -34,8 +31,7 @@ function CategoryCheckbox({ selectedCategory, onCategoryChange }) {
           className="personalRadio"
           id="personalRadio"
           checked={selectedCategory === 'personal'}
-          disabled={selectedCategory === 'personal'} 
-          onChange={() => {}}
+          disabled
         />
         <label htmlFor="personalRadio">Personal</label>
       </div>
