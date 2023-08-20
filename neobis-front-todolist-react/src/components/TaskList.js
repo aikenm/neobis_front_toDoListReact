@@ -1,22 +1,32 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 
-function TaskList({ tasks, onDelete, onEdit, onComplete }) {
-  const handleEdit = (index, newText) => {
-    onEdit(index, newText);
+function TaskList({ tasks, onEdit, onComplete }) {
+  const handleEdit = (taskId, newText) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId
+        ? { ...task, isEditing: !task.isEditing, text: newText !== undefined ? newText : task.text }
+        : task
+    );
+    onEdit(updatedTasks);
   };
 
-  const handleEditButtonClick = (index) => {
-    handleEdit(index, 'newEditedText');
+  const handleDelete = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    onEdit(updatedTasks);
+  };
+
+  const handleEditButtonClick = (taskId) => {
+    handleEdit(taskId);
   };
 
   const editableLabelRefs = useRef([]);
 
   useEffect(() => {
-    tasks.forEach((task, index) => {
-      if (task.isEditing && editableLabelRefs.current[index]) {
-        editableLabelRefs.current[index].focus();
+    tasks.forEach((task) => {
+      if (task.isEditing && editableLabelRefs.current[task.id]) {
+        editableLabelRefs.current[task.id].focus();
         const range = document.createRange();
-        range.selectNodeContents(editableLabelRefs.current[index]);
+        range.selectNodeContents(editableLabelRefs.current[task.id]);
         range.collapse(false);
         const selection = window.getSelection();
         selection.removeAllRanges();
@@ -27,15 +37,15 @@ function TaskList({ tasks, onDelete, onEdit, onComplete }) {
 
   return (
     <ul className="taskList">
-      {tasks.map((task, index) => (
-        <li key={index} className={task.category}>
+      {tasks.map((task) => (
+        <li key={task.id} className={task.category}>
           <input
             type="checkbox"
             checked={task.completed}
-            onChange={() => onComplete(index)}
+            onChange={() => onComplete(task.id)}
           />
           <label
-            ref={(el) => (editableLabelRefs.current[index] = el)}
+            ref={(el) => (editableLabelRefs.current[task.id] = el)}
             className={`taskText ${task.isEditing ? 'editable' : ''} ${
               task.completed ? 'completed' : ''
             }`}
@@ -43,10 +53,10 @@ function TaskList({ tasks, onDelete, onEdit, onComplete }) {
           >
             {task.text}
           </label>
-          <button className="edit-button" onClick={() => handleEditButtonClick(index)}>
+          <button className="edit-button" onClick={() => handleEditButtonClick(task.id)}>
             {task.isEditing ? '✔' : 'Edit'}
           </button>
-          <button className="delete-button" onClick={() => onDelete(index)}>
+          <button className="delete-button" onClick={() => handleDelete(task.id)}>
             Delete
           </button>
         </li>

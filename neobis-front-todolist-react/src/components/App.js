@@ -17,14 +17,16 @@ function App() {
 
   const handleAddTask = (newTaskText) => {
     if (taskText.trim() !== '') {
-    const newTask = {
-      text: newTaskText,
-      category: selectedCategory,
-      checked: false,
-    };
-    setTasks([...tasks, newTask]);
-    setTaskText(''); 
-  }
+      const newTask = {
+        id: Date.now(), 
+        text: newTaskText,
+        category: selectedCategory,
+        checked: false,
+        isEditing: false,
+      };
+      setTasks([...tasks, newTask]);
+      setTaskText('');
+    }
   };
 
   const handleKeyPress = (event) => {
@@ -32,23 +34,24 @@ function App() {
       handleAddTask(taskText);
     }
   };
-  
 
-  const handleComplete = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
+  const handleComplete = (taskId) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
   };
 
   const handleDelete = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
-  };
-
-  const handleEdit = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index].isEditing = !updatedTasks[index].isEditing;
-    setTasks(updatedTasks);
+    const updatedTasks = tasks.slice(); 
+    const deletedTask = updatedTasks.splice(index, 1)[0]; 
+    setTasks(updatedTasks); 
+    
+    
+    if (deletedTask.isEditing) {
+      deletedTask.isEditing = false;
+      setTasks([...updatedTasks.slice(0, index), deletedTask, ...updatedTasks.slice(index)]); 
+    }
   };
 
   return (
@@ -75,8 +78,8 @@ function App() {
       <TaskList 
         tasks={tasks} 
         onDelete={handleDelete} 
-        onEdit={handleEdit} 
-        onComplete={handleComplete} 
+        onEdit={(updatedTasks) => setTasks(updatedTasks)} 
+        onComplete={handleComplete}
       />
     </div>
   );
