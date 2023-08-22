@@ -18,7 +18,6 @@ function CategoryCheckbox({ selectedCategory, onCategoryChange }) {
           className="businessRadio"
           id="businessRadio"
           checked={selectedCategory === 'business'}
-          disabled
         />
         <label htmlFor="businessRadio">Business</label>
       </div>
@@ -31,7 +30,6 @@ function CategoryCheckbox({ selectedCategory, onCategoryChange }) {
           className="personalRadio"
           id="personalRadio"
           checked={selectedCategory === 'personal'}
-          disabled
         />
         <label htmlFor="personalRadio">Personal</label>
       </div>
